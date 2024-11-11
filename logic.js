@@ -2,32 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('fa-bars');
-        menuToggle.classList.toggle('fa-times');
-    });
-
-    // Cerrar menú al hacer click en un enlace
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('fa-times');
-            menuToggle.classList.add('fa-bars');
+    // Gestión del menú hamburguesa
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('fa-bars');
+            menuToggle.classList.toggle('fa-times');
         });
-    });
+    }
 
-    // Cerrar menú al hacer scroll
-    window.addEventListener('scroll', () => {
-        if(navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('fa-times');
-            menuToggle.classList.add('fa-bars');
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar todos los enlaces del menú
     const menuLinks = document.querySelectorAll('.nav-link');
     
@@ -35,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     menuLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // Cerrar menú móvil si está abierto
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+            }
             
             // Obtener el destino del enlace
             const targetId = this.getAttribute('href');
@@ -50,6 +40,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
+    });
+
+    // Cerrar menú al hacer scroll
+    window.addEventListener('scroll', () => {
+        if(navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('fa-times');
+            menuToggle.classList.add('fa-bars');
+        }
+    });
+
+    // Cerrar menú al redimensionar la ventana
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('fa-times');
+            menuToggle.classList.add('fa-bars');
+        }
     });
 
     // Resaltar sección activa durante el scroll
@@ -90,4 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lastScroll = currentScroll;
     });
+
+    // Prevenir el comportamiento por defecto del menú hamburguesa
+    if (menuToggle) {
+        menuToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        });
+    }
 });
