@@ -1,263 +1,360 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Coffee Gourmet - Máquinas de café profesionales para negocios. Venta, mantenimiento y servicio técnico especializado en Madrid">
-    <meta name="keywords" content="máquinas de café, café profesional, cafeteras industriales, barista, coffee shop, equipamiento hostelería">
-    <meta name="author" content="Coffee Gourmet">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Coffee Gourmet - Máquinas de Café Profesionales">
-    <meta property="og:description" content="Especialistas en máquinas de café profesionales para tu negocio">
-    <meta property="og:image" content="ruta-a-tu-imagen.jpg">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Coffee Gourmet - Máquinas de Café Profesionales">
-    <meta name="twitter:description" content="Especialistas en máquinas de café profesionales para tu negocio">
-    
-    <title>Coffee Gourmet - Máquinas de Café Profesionales | Madrid</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Caffee Gourmet - Máquinas de Café Modernas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #5C3D2E;
+            --secondary-color: #B85C38;
+            --accent-color: #E0C097;
+            --light-color: #F2E3D5;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links i {
+            font-size: 1.2rem;
+        }
+
+        /* Logo Styles */
+        .logo {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('coffe.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            background-color: var(--light-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 5rem 0;
+            background-color: var(--primary-color);
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+       /* Services Section */
+       .services {
+            padding: 5rem 2rem;
+            background-color: var(--light-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+    </style>
 </head>
-<body class="font-sans">
-   
-   
-   
- <!-- Barra de navegación -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="nav-logo">
-            <i class="fa-solid fa-mug-hot"></i>
-            <span>Coffee Gourmet</span>
-        </div>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="logo"><i class="fas fa-coffee"></i> Caffee Gourmet</a></li>
+            <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#productos"><i class="fas fa-box"></i> Productos</a></li>
+            <li><a href="#video"><i class="fas fa-play-circle"></i> Video</a></li>
+            <li><a href="#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+    </nav>
 
-        <div class="nav-menu">
-            <a href="#inicio" class="nav-link">
-                <i class="fa-solid fa-house"></i>
-                <span>Inicio</span>
-            </a>
-            <a href="#productos" class="nav-link">
-                <i class="fa-solid fa-shop"></i>
-                <span>Productos</span>
-            </a>
-            <a href="#empresa" class="nav-link">
-                <i class="fa-solid fa-video"></i>
-                <span>Video</span>
-            </a>
-            <a href="#servicios" class="nav-link">
-                <i class="fa-solid fa-bell-concierge"></i>
-                <span>Servicios</span>
-            </a>
-            <a href="#contacto" class="nav-link">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Contacto</span>
-            </a>
-        </div>
-    </div>
-</nav>
-    
-    <!-- Añade este espaciador justo después del nav -->
-    <div class="h-16"></div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-overlay"></div>
+    <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Coffee Gourmet</h1>
-            <p>Máquinas de café profesionales para experiencias únicas</p>
-            <a href="#productos" class="hero-button">Ver Productos</a>
+            <h1>Caffee Gourmet</h1>
+            <p>Tecnología de vanguardia para el mejor café</p>
         </div>
     </section>
 
-    <!-- Productos -->
-    <section id="productos" class="products-section">
-        <div class="container">
-            <h2>Nuestras Máquinas</h2>
-            <div class="products-grid">
-               <!-- Producto 1 -->
-                <div class="product-card">
-                    <img src="foto1.jpeg" alt="Máquina Profesional">
-                    <div class="product-info">
-                        <h3>Máquina Profesional XP-5000</h3>
-                        <p>Perfecta para cafeterías de alto volumen</p>
-                        <a href="#" class="btn-more">Más información</a>
-                    </div>
+    <section id="productos" class="products">
+        <h2>Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('foto1.jpeg')"></div>
+                <div class="product-info">
+                    <h3>Modelo Ejecutivo Pro</h3>
+                    <p>Perfecta para oficinas grandes. Capacidad de 200 tazas diarias.</p>
                 </div>
-                <!-- Producto 2 -->
-                <div class="product-card">
-                    <img src="foto2.jpeg" alt="Máquina Semi-profesional">
-                    <div class="product-info">
-                        <h3>Modelo Barista Pro</h3>
-                        <p>Ideal para restaurantes medianos</p>
-                        <a href="#" class="btn-more">Más información</a>
-                    </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('foto2.jpeg')"></div>
+                <div class="product-info">
+                    <h3>Modelo Compact Plus</h3>
+                    <p>Ideal para espacios reducidos. Capacidad de 100 tazas diarias.</p>
                 </div>
-                <!-- Producto 3 -->
-                <div class="product-card">
-                    <img src="foto3.jpeg" alt="Máquina Compacta">
-                    <div class="product-info">
-                        <h3>Compact Series 2000</h3>
-                        <p>Perfecta para oficinas y espacios pequeños</p>
-                        <a href="#" class="btn-more">Más información</a>
-                    </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('foto3.jpeg')"></div>
+                <div class="product-info">
+                    <h3>Modelo Barista Touch</h3>
+                    <p>Experiencia premium con pantalla táctil. Capacidad de 150 tazas diarias.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video -->
-    <section id="empresa" class="video-section">
-        <div class="container">
-            <p class="video-subtitle">Descubre cómo llevamos la excelencia del café a tu negocio</p>
-            <div class="video-container">
-                <video class="main-video" controls>
-                    <source src="video1.mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+    <section id="video" class="video-section">
+        <div class="video-container">
+            <video width="100%" controls autoplay muted>
+                <source src="video1.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+    </section>
+    <section id="servicios" class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tools service-icon"></i>
+                <h3>Mantenimiento</h3>
+                <p>Servicio técnico especializado</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-truck service-icon"></i>
+                <h3>Entrega</h3>
+                <p>Entrega e instalación gratuita</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-coffee service-icon"></i>
+                <h3>Capacitación</h3>
+                <p>Formación para tu personal</p>
             </div>
         </div>
     </section>
 
-
-    <!-- Servicios -->
-    <section id="servicios" class="services-section">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-wrench"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Mantenimiento</h3>
-                        <p>Servicio técnico especializado y mantenimiento preventivo para mantener tus máquinas en perfecto estado.</p>
-                        <a href="#" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-    
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Capacitación</h3>
-                        <p>Formación profesional para baristas y personal de tu negocio. Aprende las técnicas más avanzadas.</p>
-                        <a href="#" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-    
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Asesoría</h3>
-                        <p>Consultoría personalizada para optimizar tu negocio y maximizar el rendimiento de tus equipos.</p>
-                        <a href="#" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <h3>Ubicación</h3>
+                <p>Av. Principal #123</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone contact-icon"></i>
+                <h3>Teléfono</h3>
+                <p>+1 234 567 890</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3>Email</h3>
+                <p>info@cafetech.com</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-clock contact-icon"></i>
+                <h3>Horario</h3>
+                <p>Lun-Vie: 9:00-18:00</p>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="contact-section">
-        <div class="container">
-            <h2>Contáctanos</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <h3>Ubicación</h3>
-                    <p>Calle Principal 123</p>
-                    <p>28001 Madrid, España</p>
-                </div>
-    
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <h3>Teléfono</h3>
-                    <p>+34 900 123 456</p>
-                    <p>Lun - Vie: 9:00 - 18:00</p>
-                </div>
-    
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p>info@coffeegourmet.com</p>
-                    <p>ventas@coffeegourmet.com</p>
-                </div>
-    
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <h3>Redes Sociales</h3>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-   
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <!-- Sección principal del footer -->
-            <div class="footer-main">
-                <!-- Logo y descripción -->
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <i class="fa-solid fa-mug-hot"></i>
-                        <span>Coffee Gourmet</span>
-                    </div>
-                    <p class="footer-desc">Expertos en máquinas de café profesionales. Llevando la excelencia del café a tu negocio desde 2010.</p>
-                </div>
-    
-                
-                
-    
-                <!-- Redes sociales -->
-                <div class="footer-col">
-                  
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                    </div>
-    
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <p>&copy; 2024 Coffee Gourmet. Todos los derechos reservados.</p>
-            </div>
+        <p>© 2024 CaféTech Pro. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
-<!-- JavaScript -->
-<script src="logic.js"></script>
 </body>
 </html>
